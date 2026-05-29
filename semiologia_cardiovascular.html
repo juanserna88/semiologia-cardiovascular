@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Semiología Cardiovascular</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,500&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --green-900:#2a1a12;   /* café muy oscuro (fondo) */
+  --green-800:#3a2519;   /* café oscuro */
+  --green-700:#4d3122;   /* café medio */
+  --green-600:#6b4630;   /* café cálido */
+  --gold:#b23a2e;        /* rojo terracota (acento) */
+  --gold-light:#e07a5f;  /* rojo coral claro */
+  --cream:#f3e3cf;       /* beige */
+  --cream-soft:#fbf3e6;  /* beige claro */
+  --ink:#1c100a;
+  --shadow:rgba(28,16,10,.4);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Montserrat',sans-serif;
+  background:
+    radial-gradient(circle at 15% 8%,rgba(178,58,46,.10),transparent 45%),
+    radial-gradient(circle at 85% 92%,rgba(107,70,48,.12),transparent 50%),
+    var(--cream-soft);
+  color:var(--ink);
+  line-height:1.65;
+  overflow-x:hidden;
+}
+::selection{background:var(--gold);color:var(--green-900)}
+
+/* ===== HEADER ===== */
+header{
+  position:relative;
+  padding:5rem 1.5rem 4rem;
+  text-align:center;
+  background:linear-gradient(160deg,var(--green-800),var(--green-900));
+  border-bottom:3px solid var(--gold);
+  overflow:hidden;
+}
+header::before{
+  content:"";
+  position:absolute;inset:0;
+  background:repeating-linear-gradient(90deg,transparent,transparent 38px,rgba(224,122,95,.05) 39px,rgba(224,122,95,.05) 40px);
+  pointer-events:none;
+}
+.tag{
+  display:inline-block;
+  font-size:.72rem;letter-spacing:.32em;text-transform:uppercase;
+  color:var(--gold-light);
+  border:1px solid rgba(178,58,46,.4);
+  padding:.5rem 1.2rem;border-radius:40px;
+  margin-bottom:1.6rem;
+  animation:fade .8s ease both;
+}
+header h1{
+  font-family:'Fraunces',serif;
+  font-weight:900;
+  font-size:clamp(2.4rem,6vw,4.6rem);
+  line-height:1.02;
+  color:var(--cream-soft);
+  letter-spacing:-.01em;
+  animation:fade .8s .1s ease both;
+}
+header h1 em{color:var(--gold);font-style:italic}
+header p{
+  max-width:620px;margin:1.4rem auto 0;
+  color:rgba(244,236,216,.72);
+  font-weight:300;font-size:1.05rem;
+  animation:fade .8s .2s ease both;
+}
+@keyframes fade{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+
+/* author presentation */
+.author{
+  margin:1.4rem auto .4rem;
+  display:inline-flex;flex-direction:column;align-items:center;gap:.15rem;
+  padding:1rem 2rem;
+  border-top:1px solid rgba(178,58,46,.35);
+  border-bottom:1px solid rgba(178,58,46,.35);
+  animation:fade .8s .15s ease both;
+}
+.author-name{
+  font-family:'Fraunces',serif;font-weight:600;font-style:italic;
+  font-size:1.35rem;color:var(--gold-light);letter-spacing:.01em;
+}
+.author-role{font-size:.82rem;font-weight:500;letter-spacing:.06em;color:var(--cream)}
+.author-affil{font-size:.74rem;font-weight:300;letter-spacing:.08em;text-transform:uppercase;color:rgba(243,227,207,.65)}
+
+/* heart pulse decorative */
+.pulse-line{margin:2.4rem auto 0;display:block;max-width:340px;animation:fade .8s .3s ease both}
+.pulse-line path{stroke:var(--gold);stroke-width:2;fill:none;stroke-dasharray:600;stroke-dashoffset:600;animation:draw 2.4s 1s ease forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+
+/* ===== NAV ===== */
+nav{
+  position:sticky;top:0;z-index:50;
+  display:flex;flex-wrap:wrap;justify-content:center;gap:.4rem;
+  padding:.9rem 1rem;
+  background:rgba(42,26,18,.92);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(178,58,46,.4);
+}
+nav a{
+  font-size:.78rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;
+  color:rgba(244,236,216,.7);text-decoration:none;cursor:pointer;
+  padding:.5rem .95rem;border-radius:30px;transition:.25s;
+}
+nav a:hover{color:var(--green-900);background:var(--gold)}
+
+/* ===== SECTIONS ===== */
+main{max-width:1080px;margin:0 auto;padding:4rem 1.5rem}
+section{margin-bottom:5rem;scroll-margin-top:80px}
+.sec-head{display:flex;align-items:baseline;gap:1rem;margin-bottom:2rem}
+.sec-num{
+  font-family:'Fraunces',serif;font-weight:900;font-size:3rem;
+  color:rgba(178,58,46,.45);line-height:1;
+}
+.sec-title{
+  font-family:'Fraunces',serif;font-weight:600;
+  font-size:clamp(1.6rem,4vw,2.4rem);color:var(--green-900);
+}
+.sec-title span{display:block;font-family:'Montserrat';font-weight:600;font-size:.8rem;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);margin-top:.3rem}
+
+.intro{color:rgba(42,26,18,.78);font-weight:400;max-width:760px;margin-bottom:2rem;font-size:1.02rem}
+
+/* cards */
+.grid{display:grid;gap:1.2rem}
+.g2{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.card{
+  background:linear-gradient(155deg,var(--green-800),var(--green-900));
+  border:1px solid rgba(178,58,46,.2);
+  border-radius:16px;padding:1.8rem;
+  box-shadow:0 10px 30px var(--shadow);
+  transition:.3s;position:relative;overflow:hidden;
+}
+.card::before{content:"";position:absolute;top:0;left:0;width:3px;height:100%;background:linear-gradient(var(--gold),transparent)}
+.card:hover{transform:translateY(-4px);border-color:rgba(178,58,46,.5)}
+.card h3{font-family:'Fraunces',serif;font-weight:600;font-size:1.3rem;color:var(--gold-light);margin-bottom:.9rem}
+.card h4{color:var(--gold);font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;margin:1rem 0 .5rem;font-weight:700}
+.card ul{list-style:none}
+.card li{padding-left:1.4rem;position:relative;margin-bottom:.55rem;color:rgba(244,236,216,.85);font-weight:300;font-size:.95rem}
+.card li::before{content:"›";position:absolute;left:0;color:var(--gold);font-weight:700}
+.card li b{color:var(--cream-soft);font-weight:600}
+
+/* technique steps */
+.tech{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.tech-step{
+  background:rgba(107,70,48,.10);border:1px solid rgba(178,58,46,.25);
+  border-radius:14px;padding:1.5rem;transition:.3s;
+}
+.tech-step:hover{background:rgba(107,70,48,.18)}
+.tech-step .ico{font-size:1.8rem;margin-bottom:.6rem;display:block}
+.tech-step h3{font-family:'Fraunces',serif;color:var(--gold);font-size:1.15rem;margin-bottom:.5rem}
+.tech-step p{font-size:.9rem;font-weight:400;color:rgba(42,26,18,.82)}
+.tech-step p b{color:var(--green-900);font-weight:700}
+
+/* FOCOS - heart diagram */
+.focos-wrap{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:center}
+@media(max-width:760px){.focos-wrap{grid-template-columns:1fr}}
+.heart-svg{width:100%;max-width:380px;margin:0 auto;display:block}
+.foco-dot{cursor:pointer;transition:.25s}
+.foco-dot circle{transition:.25s}
+.foco-dot:hover circle{r:16;fill:var(--gold)}
+.foco-list .foco-item{
+  border-left:3px solid var(--gold);padding:.7rem 0 .7rem 1rem;margin-bottom:.8rem;
+  cursor:pointer;transition:.25s;border-radius:0 8px 8px 0;
+}
+.foco-list .foco-item:hover,.foco-list .foco-item.active{background:rgba(178,58,46,.12)}
+.foco-item b{color:var(--gold);font-family:'Fraunces',serif;font-size:1.05rem}
+.foco-item .loc{display:block;font-size:.82rem;color:rgba(42,26,18,.7);font-weight:400;margin-top:.2rem}
+
+/* VALVULOPATÍAS table-cards */
+.valv{display:grid;gap:1.4rem;grid-template-columns:repeat(auto-fit,minmax(330px,1fr))}
+.valv-card{
+  background:linear-gradient(150deg,var(--green-700),var(--green-900));
+  border-radius:18px;overflow:hidden;border:1px solid rgba(178,58,46,.22);
+  box-shadow:0 12px 32px var(--shadow);transition:.3s;
+}
+.valv-card:hover{transform:translateY(-5px)}
+.valv-head{padding:1.3rem 1.6rem;background:rgba(178,58,46,.14);border-bottom:1px solid rgba(178,58,46,.25)}
+.valv-head h3{font-family:'Fraunces',serif;font-size:1.35rem;color:var(--gold-light)}
+.valv-head .type{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.valv-body{padding:1.4rem 1.6rem}
+.valv-row{display:flex;gap:.7rem;padding:.6rem 0;border-bottom:1px dashed rgba(178,58,46,.15)}
+.valv-row:last-child{border:none}
+.valv-row .k{flex:0 0 105px;font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--gold);padding-top:.15rem}
+.valv-row .v{font-size:.92rem;font-weight:300;color:rgba(244,236,216,.88)}
+.valv-row .v b{color:var(--cream-soft);font-weight:600}
+
+/* Leyenda valvulopatías */
+.legend{
+  display:flex;flex-wrap:wrap;gap:1.2rem;align-items:center;justify-content:center;
+  margin:.5rem 0 2rem;padding:.9rem 1.2rem;
+  background:rgba(107,70,48,.10);border:1px solid rgba(178,58,46,.25);
+  border-radius:12px;
+}
+.leg-item{
+  display:inline-flex;align-items:center;gap:.5rem;
+  font-size:.78rem;font-weight:600;letter-spacing:.04em;
+  color:rgba(42,26,18,.78);text-transform:uppercase;
+}
+.leg-dot{width:12px;height:12px;border-radius:50%;display:inline-block}
+
+/* Cardiopatías congénitas - separadores */
+.cc-split{
+  display:flex;align-items:center;justify-content:center;gap:1rem;
+  margin:2.2rem 0 1.6rem;
+}
+.cc-split::before,.cc-split::after{
+  content:"";flex:1;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(178,58,46,.5),transparent);
+}
+.cc-label{
+  font-family:'Fraunces',serif;font-weight:600;font-style:italic;
+  font-size:1.05rem;padding:.5rem 1.4rem;border-radius:30px;letter-spacing:.02em;
+  white-space:nowrap;
+}
+.cc-aci{background:rgba(107,70,48,.18);color:var(--green-900);border:1px solid rgba(107,70,48,.4)}
+.cc-cia{background:rgba(178,58,46,.18);color:var(--gold);border:1px solid rgba(178,58,46,.5)}
+
+/* Encabezados diferenciados para cc */
+.cc-aci-head{background:rgba(107,70,48,.22) !important}
+.cc-cia-head{background:rgba(178,58,46,.20) !important}
+.cc-cia-head h3{color:var(--gold-light) !important}
+
+footer{
+  text-align:center;padding:3rem 1.5rem;
+  background:linear-gradient(160deg,var(--green-800),var(--green-900));
+  border-top:3px solid var(--gold);
+  color:rgba(243,227,207,.6);font-size:.82rem;font-weight:300;
+}
+footer b{color:var(--gold-light);font-family:'Fraunces',serif;font-weight:600}
+
+.reveal{opacity:0;transform:translateY(30px);transition:.7s}
+.reveal.in{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<header>
+  <span class="tag">Examen Físico · Aparato Cardiovascular</span>
+  <h1>Semiología <em>Cardiovascular</em></h1>
+  <div class="author">
+    <p class="author-name">Dr. Juan David Serna Zuluaga</p>
+    <p class="author-role">Médico · MSc en Educación y Transformación Digital</p>
+    <p class="author-affil">Docente de Semiología Médica · Universidad de Manizales</p>
+  </div>
+  <p>Inspección, palpación, percusión y auscultación cardíaca — focos de auscultación y valvulopatías con su correlato semiológico.</p>
+  <svg class="pulse-line" viewBox="0 0 340 60"><path d="M0,30 L80,30 L95,30 L105,8 L120,52 L135,15 L148,30 L210,30 L222,30 L232,12 L246,48 L258,30 L340,30"/></svg>
+</header>
+
+<nav>
+  <a data-target="inspeccion">Inspección</a>
+  <a data-target="palpacion">Palpación</a>
+  <a data-target="percusion">Percusión</a>
+  <a data-target="auscultacion">Auscultación</a>
+  <a data-target="focos">Focos</a>
+  <a data-target="valvulopatias">Valvulopatías</a>
+  <a data-target="congenitas">Congénitas</a>
+</nav>
+
+<main>
+
+<!-- INSPECCIÓN -->
+<section id="inspeccion" class="reveal">
+  <div class="sec-head"><span class="sec-num">01</span><h2 class="sec-title">Inspección<span>Observación del precordio</span></h2></div>
+  <p class="intro">Paciente en decúbito supino a 30–45°, tórax descubierto, con iluminación tangencial que permita captar movimientos sutiles de la pared torácica.</p>
+  <div class="grid g2">
+    <div class="card">
+      <h3>Hallazgos del precordio</h3>
+      <ul>
+        <li><b>Choque de punta:</b> visible en 5.º EIC, línea medioclavicular izquierda en sujetos delgados.</li>
+        <li><b>Abombamiento precordial:</b> cardiopatías congénitas o crecimiento ventricular en la infancia.</li>
+        <li><b>Latidos anormales:</b> impulso paraesternal (hipertrofia VD), pulsaciones epigástricas.</li>
+        <li><b>Cicatrices:</b> esternotomía, toracotomía, dispositivos (marcapasos).</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Signos generales asociados</h3>
+      <ul>
+        <li><b>Cianosis</b> central/periférica y <b>acropaquia</b> (dedos en palillo de tambor).</li>
+        <li><b>Ingurgitación yugular</b> y reflujo hepatoyugular (falla derecha).</li>
+        <li><b>Edema</b> de miembros inferiores, ascitis.</li>
+        <li><b>Facies</b> mitral, xantelasmas, arco corneal.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- PALPACIÓN -->
+<section id="palpacion" class="reveal">
+  <div class="sec-head"><span class="sec-num">02</span><h2 class="sec-title">Palpación<span>Confirmar lo inspeccionado</span></h2></div>
+  <p class="intro">Con la palma y la base de los dedos se confirma la localización del choque de punta y se buscan frémitos y latidos anormales.</p>
+  <div class="grid g2">
+    <div class="card">
+      <h3>Choque de la punta (Ictus cordis)</h3>
+      <h4>Características normales</h4>
+      <ul>
+        <li><b>Localización:</b> 5.º EIC, línea medioclavicular izquierda.</li>
+        <li><b>Extensión:</b> ≤ 2–2.5 cm (una yema de dedo).</li>
+        <li><b>Duración:</b> breve, primera mitad de la sístole.</li>
+      </ul>
+      <h4>Alteraciones</h4>
+      <ul>
+        <li><b>Desplazado abajo/afuera:</b> dilatación del VI (sobrecarga de volumen).</li>
+        <li><b>Sostenido/intenso:</b> hipertrofia del VI (sobrecarga de presión).</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Frémitos y otros</h3>
+      <ul>
+        <li><b>Frémito:</b> equivalente palpatorio de un soplo (≥ grado IV/VI). "Ronroneo de gato".</li>
+        <li><b>Frémito diastólico en ápex:</b> estenosis mitral.</li>
+        <li><b>Frémito sistólico en foco aórtico:</b> estenosis aórtica.</li>
+        <li><b>Impulso paraesternal izquierdo:</b> hipertrofia/dilatación del VD.</li>
+        <li><b>P2 palpable:</b> hipertensión pulmonar.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- PERCUSIÓN -->
+<section id="percusion" class="reveal">
+  <div class="sec-head"><span class="sec-num">03</span><h2 class="sec-title">Percusión<span>Valor limitado, no abandonado</span></h2></div>
+  <p class="intro">Técnica de utilidad decreciente frente a la imagen, pero permite una estimación clínica de la silueta cardíaca y del área de matidez.</p>
+  <div class="grid g2">
+    <div class="card">
+      <h3>Técnica y matidez cardíaca</h3>
+      <ul>
+        <li>Percusión de fuera hacia adentro, desde zona sonora pulmonar hacia el corazón.</li>
+        <li><b>Matidez relativa:</b> límite real del corazón (cubierto por pulmón).</li>
+        <li><b>Matidez absoluta:</b> zona del corazón en contacto directo con la pared.</li>
+        <li>El borde derecho normal no rebasa el borde esternal derecho.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Utilidad clínica</h3>
+      <ul>
+        <li><b>Cardiomegalia:</b> ampliación del área de matidez.</li>
+        <li><b>Derrame pericárdico:</b> matidez que cambia con la posición.</li>
+        <li>Confirmación de <b>dextrocardia</b> (matidez en hemitórax derecho).</li>
+        <li>Diferenciación de matidez por enfisema (corazón "pequeño y vertical").</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- AUSCULTACIÓN -->
+<section id="auscultacion" class="reveal">
+  <div class="sec-head"><span class="sec-num">04</span><h2 class="sec-title">Auscultación<span>El pilar del examen cardíaco</span></h2></div>
+  <p class="intro">Ambiente silencioso, paciente en supino, decúbito lateral izquierdo (acentúa ruidos mitrales) y sentado inclinado adelante en espiración (acentúa ruidos aórticos).</p>
+  <div class="tech">
+    <div class="tech-step"><span class="ico">🔔</span><h3>Campana</h3><p>Aplicada con presión suave, detecta sonidos de <b>baja frecuencia</b>: R3, R4 y el retumbo de la estenosis mitral.</p></div>
+    <div class="tech-step"><span class="ico">⭕</span><h3>Membrana</h3><p>Aplicada con firmeza, capta sonidos de <b>alta frecuencia</b>: R1, R2, clics y soplos de regurgitación.</p></div>
+    <div class="tech-step"><span class="ico">🔄</span><h3>Maniobras</h3><p>Decúbito lateral izq., posición sentado, Valsalva, hand-grip y cuclillas modifican la intensidad de los soplos.</p></div>
+  </div>
+  <div class="grid g2" style="margin-top:1.4rem">
+    <div class="card">
+      <h3>Ruidos cardíacos normales</h3>
+      <ul>
+        <li><b>R1 (primer ruido):</b> cierre de mitral y tricúspide → inicio de la sístole. Mejor en ápex.</li>
+        <li><b>R2 (segundo ruido):</b> cierre de aórtica y pulmonar → inicio de la diástole. Desdoblamiento fisiológico en inspiración.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Ruidos agregados</h3>
+      <ul>
+        <li><b>R3:</b> llenado ventricular rápido; "galope" — fisiológico en jóvenes, patológico en falla cardíaca.</li>
+        <li><b>R4:</b> contracción auricular contra ventrículo rígido (HVI, isquemia).</li>
+        <li><b>Clics y chasquidos:</b> apertura mitral, prolapso, eyección.</li>
+        <li><b>Frote pericárdico:</b> trifásico, "cuero nuevo" (pericarditis).</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- FOCOS -->
+<section id="focos" class="reveal">
+  <div class="sec-head"><span class="sec-num">05</span><h2 class="sec-title">Focos de Auscultación<span>Dónde se oye mejor cada válvula</span></h2></div>
+  <p class="intro">Pasa el cursor sobre cada punto o sobre la lista para identificar los cinco focos clásicos de auscultación cardíaca.</p>
+  <div class="focos-wrap">
+    <svg class="heart-svg" viewBox="0 0 300 320">
+      <!-- torso reference -->
+      <rect x="20" y="20" width="260" height="280" rx="18" fill="rgba(107,70,48,.10)" stroke="rgba(178,58,46,.2)"/>
+      <!-- sternum guide -->
+      <line x1="150" y1="40" x2="150" y2="280" stroke="rgba(178,58,46,.25)" stroke-dasharray="4 5"/>
+      <text x="150" y="34" fill="rgba(42,26,18,.55)" font-size="10" text-anchor="middle" font-family="Montserrat">Línea media esternal</text>
+      <!-- focos -->
+      <g class="foco-dot" data-f="ao"><circle cx="185" cy="95" r="11" fill="var(--gold)"/><text x="185" y="99" text-anchor="middle" font-size="10" font-weight="700" fill="var(--green-900)" font-family="Montserrat">A</text></g>
+      <g class="foco-dot" data-f="pu"><circle cx="115" cy="95" r="11" fill="var(--gold)"/><text x="115" y="99" text-anchor="middle" font-size="10" font-weight="700" fill="var(--green-900)" font-family="Montserrat">P</text></g>
+      <g class="foco-dot" data-f="erb"><circle cx="125" cy="120" r="11" fill="var(--green-600)" stroke="var(--gold)" stroke-width="2"/><text x="125" y="124" text-anchor="middle" font-size="9" font-weight="700" fill="var(--cream)" font-family="Montserrat">E</text></g>
+      <g class="foco-dot" data-f="tr"><circle cx="140" cy="200" r="11" fill="var(--gold)"/><text x="140" y="204" text-anchor="middle" font-size="10" font-weight="700" fill="var(--green-900)" font-family="Montserrat">T</text></g>
+      <g class="foco-dot" data-f="mi"><circle cx="190" cy="215" r="11" fill="var(--gold)"/><text x="190" y="219" text-anchor="middle" font-size="10" font-weight="700" fill="var(--green-900)" font-family="Montserrat">M</text></g>
+    </svg>
+    <div class="foco-list">
+      <div class="foco-item" data-f="ao"><b>Foco Aórtico (A)</b><span class="loc">2.º EIC derecho, junto al borde esternal.</span></div>
+      <div class="foco-item" data-f="pu"><b>Foco Pulmonar (P)</b><span class="loc">2.º EIC izquierdo, junto al borde esternal.</span></div>
+      <div class="foco-item" data-f="erb"><b>Foco Accesorio / Erb (E)</b><span class="loc">3.er EIC izquierdo — soplos aórticos de regurgitación.</span></div>
+      <div class="foco-item" data-f="tr"><b>Foco Tricuspídeo (T)</b><span class="loc">4.º–5.º EIC izquierdo, borde esternal inferior.</span></div>
+      <div class="foco-item" data-f="mi"><b>Foco Mitral / Apexiano (M)</b><span class="loc">5.º EIC izquierdo, línea medioclavicular (ápex).</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- VALVULOPATÍAS -->
+<section id="valvulopatias" class="reveal">
+  <div class="sec-head"><span class="sec-num">06</span><h2 class="sec-title">Valvulopatías<span>Semiología de los soplos</span></h2></div>
+  <p class="intro">Las ocho valvulopatías cardinales con su etiología, fisiopatología, soplo característico, foco de máxima auscultación, irradiación, maniobras que lo modifican y signos asociados.</p>
+
+  <div class="legend">
+    <span class="leg-item"><span class="leg-dot" style="background:var(--gold)"></span>Sístole</span>
+    <span class="leg-item"><span class="leg-dot" style="background:var(--gold-light)"></span>Diástole</span>
+    <span class="leg-item">↑ Inspiración = lesiones derechas · ↑ Espiración = lesiones izquierdas</span>
+  </div>
+
+  <div class="valv">
+
+    <div class="valv-card">
+      <div class="valv-head"><span class="type">Lesión izquierda · Sístole</span><h3>Estenosis Aórtica</h3></div>
+      <div class="valv-body">
+        <div class="valv-row"><span class="k">Etiología</span><span class="v">Degenerativa/calcificada (ancianos), válvula <b>bicúspide</b> (jóvenes), reumática.</span></div>
+        <div class="valv-row"><span class="k">Fisiopat.</span><span class="v">Obstrucción a la eyección del VI → <b>hipertrofia concéntrica</b> (sobrecarga de presión).</span></div>
+        <div class="valv-row"><span class="k">Soplo</span><span class="v"><b>Sistólico de eyección</b>, romboidal (crescendo-decrescendo), rudo.</span></div>
+        <div class="valv-row"><span class="k">Foco</span><span class="v">Aórtico (2.º EIC der.).</span></div>
+        <div class="valv-row"><span class="k">Irradiación</span><span class="v">Hacia <b>cuello / carótidas</b>.</span></div>
+        <div class="valv-row"><span class="k">Maniobras</span><span class="v">Aumenta en cuclillas; disminuye con Valsalva y de pie.</span></div>
+        <div class="valv-row"><span class="k">Signos</span><span class="v">Pulso <b>parvus et tardus</b>, R2 disminuido/único, frémito sistólico, R4. Tríada: angina, síncope y disnea de esfuerzo.</span></div>
+      </div>
+    </div>
+
+    <div class="valv-card">
+      <div class="valv-head"><span class="type">Lesión izquierda · Diástole</span><h3>Insuficiencia Aórtica</h3></div>
+      <div class="valv-body">
+        <div class="valv-row"><span class="k">Etiología</span><span class="v">Aguda: endocarditis, disección aórtica. Crónica: reumática, dilatación de raíz, bicúspide, Marfan.</span></div>
+        <div class="valv-row"><span class="k">Fisiopat.</span><span class="v">Reflujo diastólico → <b>sobrecarga de volumen</b> del VI → dilatación excéntrica.</span></div>
+        <div class="valv-row"><span class="k">Soplo</span><span class="v"><b>Diastólico</b> en decrescendo, aspirativo, alta frecuencia. Puede haber soplo de <b>Austin-Flint</b> en ápex.</span></div>
+        <div class="valv-row"><span class="k">Foco</span><span class="v">Erb (3.er EIC izq.), paciente sentado e inclinado, en espiración.</span></div>
+        <div class="valv-row"><span class="k">Irradiación</span><span class="v">Hacia el borde esternal izquierdo.</span></div>
+        <div class="valv-row"><span class="k">Maniobras</span><span class="v">Aumenta con hand-grip (↑ poscarga) y cuclillas.</span></div>
+        <div class="valv-row"><span class="k">Signos</span><span class="v">Pulso <b>céler (Corrigan)</b> "en martillo de agua", presión diferencial amplia. Signos de Musset, Quincke, Traube, Duroziez.</span></div>
+      </div>
+    </div>
+
+    <div class="valv-card">
+      <div class="valv-head"><span class="type">Lesión izquierda · Diástole</span><h3>Estenosis Mitral</h3></div>
+      <div class="valv-body">
+        <div class="valv-row"><span class="k">Etiología</span><span class="v"><b>Reumática</b> (la más frecuente), congénita, calcificación anular.</span></div>
+        <div class="valv-row"><span class="k">Fisiopat.</span><span class="v">Obstrucción al llenado del VI → <b>↑ presión auricular izq.</b> → congestión pulmonar e HTP.</span></div>
+        <div class="valv-row"><span class="k">Soplo</span><span class="v"><b>Retumbo diastólico</b> con refuerzo presistólico (ritmo sinusal), baja frecuencia.</span></div>
+        <div class="valv-row"><span class="k">Foco</span><span class="v">Mitral / ápex, con la <b>campana</b> en decúbito lateral izq.</span></div>
+        <div class="valv-row"><span class="k">Irradiación</span><span class="v">Escasa, muy localizado en ápex.</span></div>
+        <div class="valv-row"><span class="k">Maniobras</span><span class="v">Aumenta con ejercicio y decúbito lateral izquierdo.</span></div>
+        <div class="valv-row"><span class="k">Signos</span><span class="v">R1 aumentado, <b>chasquido de apertura</b>, facies mitral, fibrilación auricular, disfonía (Ortner).</span></div>
+      </div>
+    </div>
+
+    <div class="valv-card">
+      <div class="valv-head"><span class="type">Lesión izquierda · Sístole</span><h3>Insuficiencia Mitral</h3></div>
+      <div class="valv-body">
+        <div class="valv-row"><span class="k">Etiología</span><span class="v">Prolapso, isquémica, reumática, endocarditis, dilatación del VI (funcional).</span></div>
+        <div class="valv-row"><span class="k">Fisiopat.</span><span class="v">Reflujo sistólico a la aurícula → <b>sobrecarga de volumen</b> de AI y VI.</span></div>
+        <div class="valv-row"><span class="k">Soplo</span><span class="v"><b>Holosistólico</b> (pansistólico), en banda, alta frecuencia, soplante.</span></div>
+        <div class="valv-row"><span class="k">Foco</span><span class="v">Mitral / ápex.</span></div>
+        <div class="valv-row"><span class="k">Irradiación</span><span class="v">Hacia la <b>axila</b> izquierda.</span></div>
+        <div class="valv-row"><span class="k">Maniobras</span><span class="v">Aumenta con hand-grip y cuclillas; disminuye con Valsalva.</span></div>
+        <div class="valv-row"><span class="k">Signos</span><span class="v">R1 disminuido, R3, choque de punta desplazado y enérgico, signos de congestión pulmonar.</span></div>
+      </div>
+    </div>
+
+    <div class="valv-card">
+      <div class="valv-head"><span class="type">Lesión izquierda · Sístole</span><h3>Prolapso Mitral</h3></div>
+      <div class="valv-body">
+        <div class="valv-row"><span class="k">Etiología</span><span class="v">Degeneración mixomatosa de las valvas; asociado a Marfan y otros tejidos conectivos.</span></div>
+        <div class="valv-row"><span class="k">Fisiopat.</span><span class="v">Desplazamiento de la valva hacia la AI en sístole, con o sin regurgitación.</span></div>
+        <div class="valv-row"><span class="k">Soplo</span><span class="v"><b>Clic mesosistólico</b> seguido de soplo telesistólico.</span></div>
+        <div class="valv-row"><span class="k">Foco</span><span class="v">Mitral / ápex.</span></div>
+        <div class="valv-row"><span class="k">Irradiación</span><span class="v">Axila si hay regurgitación significativa.</span></div>
+        <div class="valv-row"><span class="k">Maniobras</span><span class="v">Valsalva y bipedestación <b>adelantan</b> el clic; cuclillas lo retrasan.</span></div>
+        <div class="valv-row"><span class="k">Signos</span><span class="v">Frecuente en mujeres jóvenes; palpitaciones, dolor atípico. Suele ser benigno.</span></div>
+      </div>
+    </div>
+
+    <div class="valv-card">
+      <div class="valv-head"><span class="type">Lesión derecha · Sístole</span><h3>Insuficiencia Tricuspídea</h3></div>
+      <div class="valv-body">
+        <div class="valv-row"><span class="k">Etiología</span><span class="v"><b>Funcional</b> por dilatación del VD/HTP (la más común), endocarditis (UDIV), Ebstein.</span></div>
+        <div class="valv-row"><span class="k">Fisiopat.</span><span class="v">Reflujo a la AD → congestión venosa sistémica.</span></div>
+        <div class="valv-row"><span class="k">Soplo</span><span class="v"><b>Holosistólico</b> que aumenta con la inspiración (<b>signo de Rivero-Carvallo</b>).</span></div>
+        <div class="valv-row"><span class="k">Foco</span><span class="v">Tricuspídeo (borde esternal inferior izq.).</span></div>
+        <div class="valv-row"><span class="k">Irradiación</span><span class="v">Hacia la derecha del esternón.</span></div>
+        <div class="valv-row"><span class="k">Maniobras</span><span class="v">Aumenta en inspiración profunda (Rivero-Carvallo +).</span></div>
+        <div class="valv-row"><span class="k">Signos</span><span class="v">Onda <b>v gigante</b> en pulso yugular, pulso hepático, hepatomegalia pulsátil, edema, ascitis.</span></div>
+      </div>
+    </div>
+
+    <div class="valv-card">
+      <div class="valv-head"><span class="type">Lesión derecha · Sístole</span><h3>Estenosis Pulmonar</h3></div>
+      <div class="valv-body">
+        <div class="valv-row"><span class="k">Etiología</span><span class="v"><b>Congénita</b> (la más frecuente), síndrome carcinoide, reumática (rara).</span></div>
+        <div class="valv-row"><span class="k">Fisiopat.</span><span class="v">Obstrucción a la salida del VD → <b>hipertrofia del VD</b>.</span></div>
+        <div class="valv-row"><span class="k">Soplo</span><span class="v"><b>Sistólico de eyección</b>, romboidal, que aumenta con la inspiración.</span></div>
+        <div class="valv-row"><span class="k">Foco</span><span class="v">Pulmonar (2.º EIC izq.).</span></div>
+        <div class="valv-row"><span class="k">Irradiación</span><span class="v">Hacia hombro y región infraclavicular izq.</span></div>
+        <div class="valv-row"><span class="k">Maniobras</span><span class="v">Aumenta en inspiración.</span></div>
+        <div class="valv-row"><span class="k">Signos</span><span class="v">Clic de eyección, R2 desdoblado amplio, impulso paraesternal (HVD).</span></div>
+      </div>
+    </div>
+
+    <div class="valv-card">
+      <div class="valv-head"><span class="type">Lesión derecha · Diástole</span><h3>Estenosis Tricuspídea</h3></div>
+      <div class="valv-body">
+        <div class="valv-row"><span class="k">Etiología</span><span class="v"><b>Reumática</b> (casi siempre junto a lesión mitral), carcinoide.</span></div>
+        <div class="valv-row"><span class="k">Fisiopat.</span><span class="v">Obstrucción al llenado del VD → <b>↑ presión en AD</b> y congestión sistémica.</span></div>
+        <div class="valv-row"><span class="k">Soplo</span><span class="v"><b>Retumbo diastólico</b> que aumenta con la inspiración.</span></div>
+        <div class="valv-row"><span class="k">Foco</span><span class="v">Tricuspídeo (borde esternal inferior izq.).</span></div>
+        <div class="valv-row"><span class="k">Irradiación</span><span class="v">Mínima, localizado.</span></div>
+        <div class="valv-row"><span class="k">Maniobras</span><span class="v">Aumenta en inspiración (Rivero-Carvallo +).</span></div>
+        <div class="valv-row"><span class="k">Signos</span><span class="v">Onda <b>a prominente</b> en pulso yugular, hepatomegalia, edema, ascitis.</span></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CARDIOPATÍAS CONGÉNITAS -->
+<section id="congenitas" class="reveal">
+  <div class="sec-head"><span class="sec-num">07</span><h2 class="sec-title">Cardiopatías Congénitas<span>Cianóticas y acianóticas</span></h2></div>
+  <p class="intro">Clasificación según la presencia de cianosis. Las <b>acianóticas</b> cursan con cortocircuito izquierda-derecha (sin cianosis inicial); las <b>cianóticas</b> presentan cortocircuito derecha-izquierda o mezcla.</p>
+
+  <div class="cc-split">
+    <span class="cc-label cc-aci">Acianóticas · Cortocircuito Izq → Der</span>
+  </div>
+
+  <div class="valv">
+
+    <div class="valv-card">
+      <div class="valv-head cc-aci-head"><span class="type">Acianótica</span><h3>Comunicación Interventricular (CIV)</h3></div>
+      <div class="valv-body">
+        <div class="valv-row"><span class="k">Definición</span><span class="v">Defecto en el tabique interventricular. <b>La cardiopatía congénita más frecuente.</b></span></div>
+        <div class="valv-row"><span class="k">Soplo</span><span class="v"><b>Holosistólico</b> rudo, intenso. A menor defecto, más intenso el soplo.</span></div>
+        <div class="valv-row"><span class="k">Foco</span><span class="v">Borde esternal izquierdo bajo (3.er–4.º EIC).</span></div>
+        <div class="valv-row"><span class="k">Irradiación</span><span class="v">"En rueda de carro" hacia toda la región precordial.</span></div>
+        <div class="valv-row"><span class="k">Signos</span><span class="v">Frémito sistólico; en grandes defectos, insuficiencia cardíaca y riesgo de <b>síndrome de Eisenmenger</b>.</span></div>
+      </div>
+    </div>
+
+    <div class="valv-card">
+      <div class="valv-head cc-aci-head"><span class="type">Acianótica</span><h3>Comunicación Interauricular (CIA)</h3></div>
+      <div class="valv-body">
+        <div class="valv-row"><span class="k">Definición</span><span class="v">Defecto en el tabique interauricular (ostium secundum el más común).</span></div>
+        <div class="valv-row"><span class="k">Soplo</span><span class="v"><b>Sistólico de eyección</b> pulmonar (por hiperflujo), no por el defecto en sí.</span></div>
+        <div class="valv-row"><span class="k">Foco</span><span class="v">Pulmonar (2.º EIC izq.).</span></div>
+        <div class="valv-row"><span class="k">Signo clave</span><span class="v"><b>Desdoblamiento fijo y amplio del R2</b> (no varía con la respiración).</span></div>
+        <div class="valv-row"><span class="k">Signos</span><span class="v">Frecuentemente asintomática en la infancia; impulso paraesternal por sobrecarga del VD.</span></div>
+      </div>
+    </div>
+
+    <div class="valv-card">
+      <div class="valv-head cc-aci-head"><span class="type">Acianótica</span><h3>Ductus Arterioso Persistente (PCA)</h3></div>
+      <div class="valv-body">
+        <div class="valv-row"><span class="k">Definición</span><span class="v">Persistencia del conducto arterioso entre aorta y arteria pulmonar. Más común en prematuros.</span></div>
+        <div class="valv-row"><span class="k">Soplo</span><span class="v"><b>Continuo</b> "en maquinaria" (Gibson), sisto-diastólico.</span></div>
+        <div class="valv-row"><span class="k">Foco</span><span class="v">Infraclavicular izquierdo / 2.º EIC izq.</span></div>
+        <div class="valv-row"><span class="k">Irradiación</span><span class="v">Hacia la espalda.</span></div>
+        <div class="valv-row"><span class="k">Signos</span><span class="v">Pulsos saltones, presión diferencial amplia (similar a insuficiencia aórtica).</span></div>
+      </div>
+    </div>
+
+    <div class="valv-card">
+      <div class="valv-head cc-aci-head"><span class="type">Acianótica</span><h3>Coartación Aórtica</h3></div>
+      <div class="valv-body">
+        <div class="valv-row"><span class="k">Definición</span><span class="v">Estrechamiento de la aorta (típicamente distal a la subclavia izq.). Asociada a válvula bicúspide y Turner.</span></div>
+        <div class="valv-row"><span class="k">Soplo</span><span class="v"><b>Sistólico</b> en región interescapular (espalda).</span></div>
+        <div class="valv-row"><span class="k">Foco</span><span class="v">Interescapular izquierdo.</span></div>
+        <div class="valv-row"><span class="k">Signo clave</span><span class="v"><b>HTA en miembros superiores</b> con pulsos femorales débiles/retrasados (gradiente brazo-pierna).</span></div>
+        <div class="valv-row"><span class="k">Signos</span><span class="v">Muescas costales en la radiografía (circulación colateral por las intercostales).</span></div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="cc-split">
+    <span class="cc-label cc-cia">Cianóticas · Cortocircuito Der → Izq / Mezcla</span>
+  </div>
+
+  <div class="valv">
+
+    <div class="valv-card">
+      <div class="valv-head cc-cia-head"><span class="type">Cianótica</span><h3>Tetralogía de Fallot</h3></div>
+      <div class="valv-body">
+        <div class="valv-row"><span class="k">Definición</span><span class="v"><b>Cardiopatía cianótica más frecuente</b> después del año. Las 4: estenosis pulmonar, CIV, dextroposición aórtica (aorta cabalgante), hipertrofia del VD.</span></div>
+        <div class="valv-row"><span class="k">Soplo</span><span class="v"><b>Sistólico de eyección</b> por la estenosis pulmonar.</span></div>
+        <div class="valv-row"><span class="k">Foco</span><span class="v">Pulmonar (borde esternal superior izq.).</span></div>
+        <div class="valv-row"><span class="k">Signo clave</span><span class="v"><b>Crisis hipoxémicas</b> que alivian con la <b>posición en cuclillas</b> (↑ resistencia sistémica).</span></div>
+        <div class="valv-row"><span class="k">Signos</span><span class="v">Cianosis, acropaquia, corazón "en bota" en la radiografía.</span></div>
+      </div>
+    </div>
+
+    <div class="valv-card">
+      <div class="valv-head cc-cia-head"><span class="type">Cianótica</span><h3>Transposición de Grandes Arterias</h3></div>
+      <div class="valv-body">
+        <div class="valv-row"><span class="k">Definición</span><span class="v">La aorta sale del VD y la pulmonar del VI → dos circulaciones en paralelo. <b>Cianosis más frecuente del recién nacido.</b></span></div>
+        <div class="valv-row"><span class="k">Soplo</span><span class="v">Variable; depende de los defectos asociados (CIV, PCA) que permiten la mezcla.</span></div>
+        <div class="valv-row"><span class="k">Foco</span><span class="v">Inespecífico.</span></div>
+        <div class="valv-row"><span class="k">Signo clave</span><span class="v"><b>Cianosis severa al nacer</b>, incompatible con la vida sin mezcla; corazón "en huevo".</span></div>
+        <div class="valv-row"><span class="k">Signos</span><span class="v">Requiere prostaglandinas para mantener el ductus permeable.</span></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <p>Recurso académico de <b>Semiología Médica</b> · Aparato Cardiovascular</p>
+  <p style="margin-top:.4rem">Material educativo de apoyo para la formación clínica.</p>
+</footer>
+
+<script>
+// Foco interactivity
+const dots=document.querySelectorAll('.foco-dot');
+const items=document.querySelectorAll('.foco-item');
+function activate(f){
+  dots.forEach(d=>{const c=d.querySelector('circle');c.setAttribute('r',d.dataset.f===f?'15':'11');c.style.fill=d.dataset.f===f?'var(--gold-light)':(d.dataset.f==='erb'?'var(--green-600)':'var(--gold)')});
+  items.forEach(i=>i.classList.toggle('active',i.dataset.f===f));
+}
+function clear(){dots.forEach(d=>{const c=d.querySelector('circle');c.setAttribute('r','11')});items.forEach(i=>i.classList.remove('active'))}
+[...dots,...items].forEach(el=>{
+  el.addEventListener('mouseenter',()=>activate(el.dataset.f));
+  el.addEventListener('mouseleave',clear);
+});
+// Smooth nav scroll (evita diálogo de enlace externo)
+document.querySelectorAll('nav a[data-target]').forEach(a=>{
+  a.addEventListener('click',()=>{
+    const el=document.getElementById(a.dataset.target);
+    if(el)el.scrollIntoView({behavior:'smooth',block:'start'});
+  });
+});
+// Reveal on scroll
+const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(s=>obs.observe(s));
+</script>
+</body>
+</html>
