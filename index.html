@@ -712,8 +712,19 @@ document.querySelectorAll('nav a[data-target]').forEach(a=>{
   });
 });
 // Reveal on scroll
-const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')}),{threshold:.12});
-document.querySelectorAll('.reveal').forEach(s=>obs.observe(s));
+const secciones = document.querySelectorAll('.reveal');
+if ('IntersectionObserver' in window) {
+  /* threshold 0: basta que asome un pixel. Con un porcentaje, las secciones
+     mas altas que la pantalla (valvulopatias) nunca se mostraban en movil. */
+  const obs = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); }
+  }), {threshold: 0, rootMargin: '0px 0px -40px 0px'});
+  secciones.forEach(s => obs.observe(s));
+  /* Red de seguridad: si algo quedara oculto, se muestra igual */
+  setTimeout(() => secciones.forEach(s => s.classList.add('in')), 4000);
+} else {
+  secciones.forEach(s => s.classList.add('in'));
+}
 </script>
 
 <script>
